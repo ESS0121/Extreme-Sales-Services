@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Portal | Extreme Sales &amp; Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-slate-100 min-h-screen font-sans">
+
+    <!-- TOP NAV BAR -->
+    <nav class="bg-gray-900 text-white w-full z-50 shadow-xl">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <span class="text-lg font-extrabold tracking-tight">Extreme S&amp;S <span class="text-blue-400 font-normal text-sm">Admin</span></span>
+          </div>
+          <div class="flex gap-3 items-center">
+            <a href="index.html" target="_blank" class="text-gray-400 hover:text-white text-sm font-medium transition">View Site ↗</a>
+            <button id="refreshBtn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow transition">
+              ↻ Refresh
+            </button>
+            <button onclick="localStorage.clear(); window.location.href='auth/login.html'" class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-lg font-semibold text-sm shadow transition">
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+      <!-- PAGE HEADER -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-extrabold text-gray-900">Admin Dashboard</h1>
+        <p class="text-gray-500 mt-1">Manage service requests, inventory, users &amp; AMC plans.</p>
+      </div>
+
+      <!-- STATS CARDS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+        <div class="glass-panel rounded-2xl p-6 relative overflow-hidden hover:-translate-y-1 transition duration-300 shadow-lg">
+          <div class="absolute -right-3 -top-3 opacity-5">
+            <svg class="w-24 h-24 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg>
+          </div>
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Active Service Jobs</p>
+          </div>
+          <p class="text-4xl font-extrabold text-gray-900" id="statJobs">--</p>
+        </div>
+
+        <div class="glass-panel rounded-2xl p-6 relative overflow-hidden hover:-translate-y-1 transition duration-300 shadow-lg">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Marketplace Items</p>
+          </div>
+          <p class="text-4xl font-extrabold text-gray-900" id="statItems">--</p>
+        </div>
+
+        <div class="glass-panel rounded-2xl p-6 relative overflow-hidden hover:-translate-y-1 transition duration-300 shadow-lg">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">AMC Subscribers</p>
+          </div>
+          <p class="text-4xl font-extrabold text-gray-900" id="statAmc">--</p>
+        </div>
+      </div>
+
+      <!-- TAB NAVIGATION -->
+      <div class="glass-panel flex space-x-1 p-1.5 rounded-xl shadow-sm border border-gray-200 mb-6 overflow-x-auto">
+        <button onclick="switchTab('tab-services', this)" class="tab-btn flex-1 whitespace-nowrap bg-blue-600 text-white font-semibold rounded-lg px-4 py-2.5 text-sm transition">Service Requests</button>
+        <button onclick="switchTab('tab-products', this)" class="tab-btn flex-1 whitespace-nowrap text-gray-500 hover:bg-gray-100 font-semibold rounded-lg px-4 py-2.5 text-sm transition">Products</button>
+        <button onclick="switchTab('tab-enquiries', this)" class="tab-btn flex-1 whitespace-nowrap text-gray-500 hover:bg-gray-100 font-semibold rounded-lg px-4 py-2.5 text-sm transition">Enquiries</button>
+        <button onclick="switchTab('tab-amc', this)" class="tab-btn flex-1 whitespace-nowrap text-gray-500 hover:bg-gray-100 font-semibold rounded-lg px-4 py-2.5 text-sm transition">AMC Manager</button>
+      </div>
+
+      <!-- TAB: SERVICE REQUESTS -->
+      <div id="tab-services" class="tab-content block space-y-6">
+        <!-- Create User -->
+        <div class="glass-panel rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h2 class="text-lg font-extrabold text-gray-800 mb-4 flex items-center gap-2">
+            <span class="w-7 h-7 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-sm">+</span>
+            Create System User (Staff / Technician)
+          </h2>
+          <form id="createUserForm" class="grid grid-cols-1 md:grid-cols-6 gap-3 items-end">
+            <div class="md:col-span-1">
+              <input type="text" id="newUserName" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Full Name">
+            </div>
+            <div class="md:col-span-2">
+              <input type="email" id="newUserEmail" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Email address">
+            </div>
+            <div class="md:col-span-1">
+              <select id="newUserRole" aria-label="User Role" class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition">
+                <option value="technician">Technician</option>
+                <option value="staff">Staff</option>
+              </select>
+            </div>
+            <div class="md:col-span-1">
+              <input type="password" id="newUserPass" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Password">
+            </div>
+            <div class="md:col-span-1">
+              <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-lg shadow transition text-sm">Add User</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Service Requests Table -->
+        <div class="glass-panel rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+          <div class="px-6 py-4 border-b border-gray-100 bg-gradient-to-r from-blue-600 to-blue-700">
+            <h3 class="font-bold text-white">Service Requests</h3>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-100">
+              <thead class="bg-gray-50/80">
+                <tr>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Customer &amp; ID</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Service Type</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Update Progress</th>
+                </tr>
+              </thead>
+              <tbody id="requestTableBody" class="divide-y divide-gray-100 bg-white"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: PRODUCTS -->
+      <div id="tab-products" class="tab-content hidden space-y-6">
+        <!-- Add Product Form -->
+        <div class="glass-panel rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h2 class="text-lg font-extrabold text-gray-800 mb-4 flex items-center gap-2">
+            <span class="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-sm">+</span>
+            Add Product to Marketplace
+          </h2>
+          <form id="addProductForm" class="grid grid-cols-1 md:grid-cols-6 gap-3 items-end">
+            <div class="md:col-span-2">
+              <input type="text" id="prodName" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Product Name (e.g. LG 1.5 Ton)">
+            </div>
+            <div class="md:col-span-1">
+              <select id="prodCategory" aria-label="Product Category" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition">
+                <option value="new_ac">New AC</option>
+                <option value="used_ac">2nd Hand AC</option>
+                <option value="spare_part">Spare Part</option>
+              </select>
+            </div>
+            <div class="md:col-span-1">
+              <input type="number" id="prodPrice" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Price (₹)">
+            </div>
+            <div class="md:col-span-1">
+              <input type="number" id="prodQuantity" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Qty (Stock)">
+            </div>
+            <div class="md:col-span-1">
+              <input type="url" id="prodImage" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Image URL">
+            </div>
+            <div class="md:col-span-6">
+              <input type="text" id="prodDesc" class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Short Description / Brand...">
+            </div>
+            <div class="md:col-span-6">
+              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-2.5 rounded-lg shadow transition text-sm">Publish Product</button>
+            </div>
+          </form>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productGridAdmin"></div>
+      </div>
+
+      <!-- TAB: ENQUIRIES -->
+      <div id="tab-enquiries" class="tab-content hidden">
+        <div class="glass-panel rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+          <div class="px-6 py-4 border-b border-gray-100 bg-gradient-to-r from-indigo-700 to-indigo-600">
+            <h3 class="font-bold text-white">Customer Enquiries</h3>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-100">
+              <thead class="bg-gray-50/80">
+                <tr>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Date</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Customer</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Target Product</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Message</th>
+                </tr>
+              </thead>
+              <tbody id="enquiryTableBody" class="divide-y divide-gray-100 bg-white"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: AMC MANAGER -->
+      <div id="tab-amc" class="tab-content hidden space-y-6">
+        <!-- AMC Subscriptions Table -->
+        <div class="glass-panel rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+          <div class="px-6 py-4 border-b border-gray-100 bg-gradient-to-r from-purple-700 to-purple-600">
+            <h3 class="font-bold text-white">AMC Subscriptions</h3>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-100">
+              <thead class="bg-gray-50/80">
+                <tr>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Date</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Customer</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Plan Name</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status / Free Services</th>
+                  <th class="px-6 py-3.5 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Action</th>
+                </tr>
+              </thead>
+              <tbody id="amcTableBody" class="divide-y divide-gray-100 bg-white"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Add AMC Plan Form -->
+        <div class="glass-panel rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h2 class="text-lg font-extrabold text-gray-800 mb-4 flex items-center gap-2">
+            <span class="w-7 h-7 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-sm">+</span>
+            Define AMC Pricing Plans
+          </h2>
+          <form id="addAmcPlanForm" class="grid grid-cols-1 md:grid-cols-4 gap-3 items-end">
+            <div>
+              <input type="text" id="amcPlanName" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Plan Name (e.g. Basic)">
+            </div>
+            <div>
+              <input type="number" id="amcPlanPrice" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Price (₹)">
+            </div>
+            <div>
+              <input type="number" id="amcPlanServices" required class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Services per Year">
+            </div>
+            <div>
+              <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2.5 rounded-lg shadow transition text-sm">Add Plan Tier</button>
+            </div>
+            <div class="md:col-span-4">
+              <textarea id="amcPlanDesc" class="w-full border border-gray-200 bg-gray-50 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Plan Description (e.g. Free filters, priority support)"></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6" id="amcPlansGridAdmin"></div>
+      </div>
+
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

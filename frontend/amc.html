@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMC Plans | Extreme Sales & Services</title>
+    <meta
+      name="description"
+      content="Annual Maintenance Contracts for your AC — priority service, free visits, and peace of mind all year long. Choose a plan today."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body
+    class="bg-gray-50 font-sans antialiased text-gray-950 flex flex-col min-h-screen"
+  >
+    <!-- NAVBAR -->
+    <nav
+      id="mainNav"
+      class="fixed w-full z-50 top-0 transition-all duration-500 bg-transparent py-4 text-center"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+        <div
+          class="glass-panel rounded-full px-8 py-2 flex items-center justify-between gap-12 border-white/20 shadow-2xl w-full max-w-4xl"
+        >
+          <a
+            href="index.html"
+            class="text-xl md:text-2xl font-black tracking-tighter text-blue-600 hover:opacity-80 transition flex items-center gap-2"
+          >
+            <span
+              class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm"
+              >ES</span
+            >
+            Extreme <span class="text-gray-950">S&S</span>
+          </a>
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              href="index.html"
+              class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm"
+              >Home</a
+            >
+            <a
+              href="products.html"
+              class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition"
+              >Products</a
+            >
+            <a
+              href="status.html"
+              class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition"
+              >Track Status</a
+            >
+            <a
+              href="amc.html"
+              class="nav-link active text-gray-950 font-black text-sm"
+              >AMC Plans</a
+            >
+            <a
+              href="service.html"
+              class="btn-glow px-6 py-2 rounded-full text-sm"
+              >Book Service</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobileMenuBtn"
+              aria-label="Toggle mobile menu"
+              class="text-gray-600 focus:outline-none"
+            >
+              <svg
+                class="h-7 w-7"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="hidden absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 p-6 md:hidden flex flex-col space-y-4 font-bold text-gray-600"
+      >
+        <a href="index.html" class="hover:text-blue-600">Home</a>
+        <a href="products.html" class="hover:text-blue-600">Products</a>
+        <a href="status.html" class="hover:text-blue-600">Track Status</a>
+        <a href="amc.html" class="text-blue-600 font-black">AMC Plans</a>
+        <a href="service.html" class="btn-glow py-4 rounded-2xl w-full"
+          >Book Service</a
+        >
+      </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <div class="hero-bg pt-44 pb-32 px-4 text-center relative overflow-hidden">
+      <div id="particleContainer"></div>
+      <div class="relative z-10 fade-up">
+        <span
+          class="bg-yellow-400/20 border border-yellow-300/40 text-yellow-200 text-[10px] font-black uppercase tracking-[0.25em] px-6 py-1.5 rounded-full mb-8 inline-block shadow-xl backdrop-blur-md"
+        >
+          ⭐ Best Value for 2026
+        </span>
+        <h1
+          class="text-4xl md:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tight"
+        >
+          Annual Maintenance<br />
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300"
+            >Contracts (AMC)</span
+          >
+        </h1>
+        <p
+          class="text-blue-100/70 text-lg md:text-xl max-w-3xl mx-auto font-medium leading-relaxed mb-10"
+        >
+          Professional care for your AC, all year long. Priority support, free
+          servicing, and zero-cost repairs in one simple annual subscription.
+        </p>
+      </div>
+    </div>
+
+    <!-- PRICING GRIDS -->
+    <main class="flex-grow mesh-bg">
+      <div class="max-w-7xl mx-auto px-4 -mt-16 pb-32 relative z-10">
+        <div
+          id="amcGrid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch reveal-stagger"
+        >
+          <!-- Loading state placeholder -->
+          <div class="col-span-full py-32 text-center reveal">
+            <div class="flex flex-col items-center gap-4">
+              <svg
+                class="w-12 h-12 text-blue-400 animate-spin"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+              <p
+                class="font-black text-gray-400 uppercase tracking-widest text-sm"
+              >
+                Initializing Plans...
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHY AMC SECTION -->
+      <section class="py-32 bg-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-24 reveal">
+            <h2
+              class="text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-tight mb-4"
+            >
+              Why Subscribe to AMC?
+            </h2>
+            <p
+              class="text-xl text-gray-500 font-medium max-w-2xl mx-auto leading-relaxed"
+            >
+              Stop worrying about breakdowns and summer heatwaves. Let the
+              experts manage your cooling.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Comp -->
+            <div class="glass-panel p-12 rounded-[3rem] reveal-left">
+              <h3
+                class="text-2xl font-black text-gray-900 mb-8 flex items-center gap-3"
+              >
+                <span
+                  class="w-10 h-10 bg-red-100 text-red-500 rounded-2xl flex items-center justify-center text-xl"
+                  >✕</span
+                >
+                One-Time Repairs
+              </h3>
+              <ul class="space-y-6 text-gray-500 font-bold text-sm">
+                <li class="flex items-center gap-4 opacity-50">
+                  <svg
+                    class="w-5 h-5 text-gray-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636"
+                    />
+                  </svg>
+                  High visiting fees per call
+                </li>
+                <li class="flex items-center gap-4 opacity-50">
+                  <svg
+                    class="w-5 h-5 text-gray-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636"
+                    />
+                  </svg>
+                  No priority in peak summer
+                </li>
+                <li class="flex items-center gap-4 opacity-50">
+                  <svg
+                    class="w-5 h-5 text-gray-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636"
+                    />
+                  </svg>
+                  No cleaning schedule
+                </li>
+              </ul>
+            </div>
+
+            <!-- Win -->
+            <div
+              class="bg-blue-600 p-12 rounded-[3.5rem] shadow-2xl shadow-blue-500/30 text-white reveal-right"
+            >
+              <h3
+                class="text-2xl font-black mb-8 flex items-center gap-3 text-white"
+              >
+                <span
+                  class="w-10 h-10 bg-white/20 text-white rounded-2xl flex items-center justify-center text-xl"
+                  >✓</span
+                >
+                AMC Subscription
+              </h3>
+              <ul class="space-y-6 font-black text-sm">
+                <li class="flex items-center gap-4">
+                  <svg
+                    class="w-6 h-6 text-green-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Zero service call costs
+                </li>
+                <li class="flex items-center gap-4">
+                  <svg
+                    class="w-6 h-6 text-green-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Guaranteed same-day visits
+                </li>
+                <li class="flex items-center gap-4">
+                  <svg
+                    class="w-6 h-6 text-green-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Periodic deep chemical wash
+                </li>
+                <li class="flex items-center gap-4">
+                  <svg
+                    class="w-6 h-6 text-green-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Unlimited labor for one year
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-gray-950 text-white py-16 text-center border-t border-white/5"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <a
+          href="index.html"
+          class="text-2xl font-black text-blue-600 block mb-6 px-4"
+          >Extreme S&S</a
+        >
+        <p
+          class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-10"
+        >
+          &copy; 2026 Extreme Sales & Services. All Rights Reserved.
+        </p>
+        <a
+          href="index.html"
+          class="text-gray-700 hover:text-white transition font-black text-[10px] uppercase tracking-widest"
+          >Back to Overview</a
+        >
+      </div>
+    </footer>
+
+    <!-- AMC BOOKING MODAL -->
+    <div
+      id="amcModal"
+      class="fixed inset-0 bg-gray-950/90 backdrop-blur-2xl z-[100] flex items-center justify-center hidden opacity-0 transition-all duration-500 p-4"
+    >
+      <div
+        class="glass-panel rounded-[3rem] shadow-2xl max-w-md w-full overflow-hidden transform scale-75 transition-all duration-500"
+        id="amcModalContent"
+      >
+        <div
+          class="bg-gradient-to-br from-blue-700 to-blue-600 p-10 flex justify-between items-center relative overflow-hidden"
+        >
+          <div class="relative z-10">
+            <h3 class="font-black text-white text-3xl tracking-tight">
+              Subscribe
+            </h3>
+            <p
+              class="text-blue-100 font-bold text-xs mt-1 uppercase tracking-widest"
+            >
+              Annual Care Contract
+            </p>
+          </div>
+          <button
+            onclick="closeAmcModal()"
+            class="text-white hover:rotate-90 transition-transform duration-300 font-black text-4xl leading-none"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div class="p-10">
+          <div
+            class="bg-blue-50 border border-blue-100 rounded-[2rem] p-6 text-center mb-10"
+          >
+            <p
+              id="modalPlanName"
+              class="text-3xl font-black text-blue-900 mb-2"
+            >
+              Plan Name
+            </p>
+            <p id="modalPlanPrice" class="text-xl text-blue-600 font-black">
+              ₹0 / yr
+            </p>
+          </div>
+
+          <form id="amcForm" class="space-y-6">
+            <input type="hidden" id="modalPlanId" />
+            <div class="form-field">
+              <input type="text" id="custName" required placeholder=" " />
+              <label for="custName">Your Full Name</label>
+            </div>
+            <div class="form-field">
+              <input type="email" id="custEmail" required placeholder=" " />
+              <label for="custEmail">Email Address</label>
+            </div>
+            <div class="form-field">
+              <input type="tel" id="custPhone" required placeholder=" " />
+              <label for="custPhone">Phone Number</label>
+            </div>
+
+            <button
+              type="submit"
+              class="btn-glow w-full py-5 rounded-3xl text-xl shadow-xl shadow-blue-500/30"
+            >
+              Request Activation &rarr;
+            </button>
+            <div
+              id="successMsg"
+              class="bg-green-100 text-green-700 border border-green-200 rounded-[2rem] p-6 text-center hidden"
+            >
+              <p class="font-black text-lg">Request Received!</p>
+              <p
+                class="text-xs mt-2 font-bold opacity-80 uppercase tracking-widest"
+              >
+                Team will call you in 2 hours
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/main.js"></script>
+    <script src="js/amc.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>

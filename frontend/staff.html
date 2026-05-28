@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Portal | Extreme AC Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen p-4 md:p-8 relative">
+    
+    <!-- Optional simple background accent -->
+    <div class="absolute top-0 left-0 w-full h-64 bg-blue-600 -z-10 rounded-b-3xl shadow-sm"></div>
+
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- HEADER -->
+      <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 text-white">
+        <div class="md:text-left text-center">
+          <h1 class="text-3xl font-bold">Staff Operations Dashboard</h1>
+          <p class="text-blue-100 mt-1">Coordinate Services and Manage Enquiries</p>
+        </div>
+        <div class="flex gap-2">
+          <button id="refreshBtn" class="bg-white hover:bg-gray-100 text-blue-700 px-4 py-2 rounded-lg font-bold shadow transition transform hover:-translate-y-0.5">
+            Refresh
+          </button>
+          <button onclick="localStorage.clear(); window.location.href='auth/login.html'" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-bold shadow border border-red-400 transition transform hover:-translate-y-0.5">
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB NAVIGATION -->
+      <div class="flex space-x-1 bg-white p-1 rounded-lg shadow-sm border border-gray-200 mb-8 overflow-x-auto max-w-sm">
+          <button onclick="switchTab('tab-services', this)" class="tab-btn flex-1 whitespace-nowrap bg-blue-100 text-blue-700 font-bold rounded-md px-4 py-2 text-sm transition">Service Queue</button>
+          <button onclick="switchTab('tab-enquiries', this)" class="tab-btn flex-1 whitespace-nowrap text-gray-500 hover:bg-gray-50 font-bold rounded-md px-4 py-2 text-sm transition">Customer Enquiries</button>
+      </div>
+
+      <!-- TAB CONTENT: SERVICES -->
+      <div id="tab-services" class="tab-content block fade-in">
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Customer & ID</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Service Details</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Assignment & Tracking</th>
+                  </tr>
+                </thead>
+                <tbody id="requestTableBody" class="bg-white divide-y divide-gray-200"></tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+
+       <!-- TAB CONTENT: CUSTOMER ENQUIRIES -->
+      <div id="tab-enquiries" class="tab-content hidden fade-in">
+         <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Date</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Customer Details</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Item Reference</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Message</th>
+                  </tr>
+                </thead>
+                <tbody id="enquiryTableBody" class="bg-white divide-y divide-gray-200"></tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+    <!-- Quick generic CSS embedded for animations -->
+    <style>
+      .fade-in { animation: fadeIn 0.3s ease-in forwards; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <script src="js/staff.js"></script>
+  </body>
+</html>

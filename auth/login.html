@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Extreme Sales & Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+
+        body {
+            min-height: 100vh;
+            transition: background 0.5s ease;
+        }
+
+        /* Role-based backgrounds */
+        body.role-admin {
+            background: linear-gradient(135deg, #c7d9f8 0%, #dce8ff 40%, #e8d5f5 100%);
+        }
+        body.role-staff {
+            background: linear-gradient(135deg, #bbf7d0 0%, #d1fae5 40%, #a7f3d0 100%);
+        }
+        body.role-technician {
+            background: linear-gradient(135deg, #fed7aa 0%, #fef3c7 40%, #fde68a 100%);
+        }
+
+        .login-card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            transition: box-shadow 0.3s;
+        }
+
+        .role-tab {
+            flex: 1;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #64748b;
+        }
+        .role-tab:not(.active):hover { background: #f1f5f9; }
+
+        /* Admin active = blue */
+        body.role-admin .role-tab.active {
+            background: #2563eb;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.35);
+        }
+        /* Staff active = green */
+        body.role-staff .role-tab.active {
+            background: #059669;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(5,150,105,0.35);
+        }
+        /* Technician active = orange */
+        body.role-technician .role-tab.active {
+            background: #ea580c;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(234,88,12,0.35);
+        }
+
+        .form-input {
+            width: 100%;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        body.role-admin .form-input:focus   { border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,0.12); background:#fff; }
+        body.role-staff .form-input:focus   { border-color:#059669; box-shadow:0 0 0 3px rgba(5,150,105,0.12); background:#fff; }
+        body.role-technician .form-input:focus { border-color:#ea580c; box-shadow:0 0 0 3px rgba(234,88,12,0.12); background:#fff; }
+        .form-input::placeholder { color: #94a3b8; }
+
+        .login-btn {
+            width: 100%;
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 13px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+            letter-spacing: 0.3px;
+        }
+        body.role-admin       .login-btn { background: #1e3a8a; }
+        body.role-admin       .login-btn:hover { background: #1e40af; }
+        body.role-staff       .login-btn { background: #065f46; }
+        body.role-staff       .login-btn:hover { background: #047857; }
+        body.role-technician  .login-btn { background: #c2410c; }
+        body.role-technician  .login-btn:hover { background: #ea580c; }
+        .login-btn:hover { transform: translateY(-1px); }
+        .login-btn:active { transform: translateY(0); }
+        .login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* Role badge under title */
+        .role-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 99px;
+            margin-top: 6px;
+            transition: all 0.3s;
+        }
+        body.role-admin       .role-badge { background:#eff6ff; color:#1d4ed8; }
+        body.role-staff       .role-badge { background:#ecfdf5; color:#065f46; }
+        body.role-technician  .role-badge { background:#fff7ed; color:#c2410c; }
+
+        /* forgot + signup link colors */
+        body.role-admin       a { color: #2563eb; }
+        body.role-staff       a { color: #059669; }
+        body.role-technician  a { color: #ea580c; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="login-card w-full max-w-sm px-8 py-9">
+
+        <!-- Title -->
+        <div class="text-center mb-7">
+            <h1 class="text-2xl font-extrabold text-gray-900 mb-1">Login Form</h1>
+            <span class="role-badge" id="roleBadge">Admin Portal</span>
+        </div>
+
+        <!-- Role Tabs -->
+        <div class="flex bg-gray-100 p-1 rounded-xl mb-6 gap-1" id="role-selector">
+            <button onclick="setRole('admin', this)" class="role-tab active">Admin</button>
+            <button onclick="setRole('staff', this)" class="role-tab">Staff</button>
+            <button onclick="setRole('technician', this)" class="role-tab">Technician</button>
+        </div>
+
+        <!-- Form -->
+        <form id="loginForm" class="space-y-4">
+            <input type="hidden" id="selectedRole" value="admin">
+
+            <div>
+                <input
+                    type="email" id="email" required
+                    class="form-input" placeholder="Email Address"
+                />
+            </div>
+
+            <div>
+                <input
+                    type="password" id="password" required
+                    class="form-input" placeholder="Password"
+                />
+            </div>
+
+            <!-- Error -->
+            <div id="errorMessage" class="text-red-500 text-sm hidden font-medium text-center bg-red-50 rounded-lg py-2 px-3"></div>
+
+            <button type="submit" id="loginBtn" class="login-btn">Login</button>
+        </form>
+
+        <!-- Footer -->
+        <p class="text-center text-xs text-gray-400 mt-6">
+            🔒 Access is restricted to authorized staff only.
+        </p>
+    </div>
+
+    <script src="../js/login.js"></script>
+    <script>
+        const roleMeta = {
+            admin:       { label: 'Admin Portal',      bodyClass: 'role-admin' },
+            staff:       { label: 'Staff Portal',       bodyClass: 'role-staff' },
+            technician:  { label: 'Technician Portal',  bodyClass: 'role-technician' }
+        };
+
+        function setRole(role, btn) {
+            document.getElementById('selectedRole').value = role;
+
+            // Update tabs
+            document.querySelectorAll('.role-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Swap body class for color theme
+            document.body.className = 'flex items-center justify-center min-h-screen p-4 ' + roleMeta[role].bodyClass;
+
+            // Update badge
+            document.getElementById('roleBadge').textContent = roleMeta[role].label;
+        }
+
+        // Set default on load
+        document.body.classList.add('role-admin');
+    </script>
+</body>
+</html>

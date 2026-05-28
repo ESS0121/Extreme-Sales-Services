@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Service Status | Extreme Sales &amp; Services</title>
+    <meta name="description" content="Track your AC service request status in real time." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen antialiased">
+
+    <!-- NAVBAR -->
+    <nav id="mainNav" class="fixed w-full z-50 top-0 transition-all duration-500 bg-transparent py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-panel rounded-full px-6 py-1 flex justify-between items-center border-white/20 shadow-2xl">
+          <div class="flex-shrink-0 flex items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter text-blue-600 hover:opacity-80 transition flex items-center gap-2">
+              <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm">ES</span>
+              Extreme <span class="text-gray-900">S&S</span>
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-8 items-center">
+            <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition">Home</a>
+            <a href="products.html" class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition">Products</a>
+            <a href="status.html" class="nav-link active text-gray-950 font-black text-sm">Track Status</a>
+            <a href="amc.html" class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition">AMC Plans</a>
+            <a href="service.html" class="btn-glow px-6 py-2.5 rounded-full text-sm">Book Service</a>
+          </div>
+          <div class="md:hidden">
+            <button id="mobileMenuBtn" aria-label="Toggle mobile menu" class="text-gray-600 hover:text-blue-600 transition">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 p-6 md:hidden text-center flex flex-col space-y-4 font-bold">
+        <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+        <a href="products.html" class="text-gray-600 hover:text-blue-600">Products</a>
+        <a href="status.html" class="text-blue-600">Track Status</a>
+        <a href="amc.html" class="text-gray-600 hover:text-blue-600">AMC Plans</a>
+        <a href="service.html" class="btn-glow py-4 rounded-2xl">Book Service</a>
+      </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <div class="hero-bg pt-40 pb-20 text-center relative overflow-hidden">
+      <div id="particleContainer"></div>
+      <div class="max-w-3xl mx-auto px-4 relative z-10 fade-up">
+        <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-2 rounded-full text-[11px] font-black uppercase tracking-[0.25em] text-white opacity-80 mb-6">
+          <span class="live-dot mb-0.5"></span>
+          Live GPS Tracking
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4 tracking-tight">Track Your Service</h1>
+        <p class="text-blue-100/70 text-lg md:text-xl font-medium max-w-xl mx-auto">Get absolute transparency with real-time status updates from our field engineers.</p>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow mesh-bg py-20 px-4 relative">
+      <div class="max-w-2xl mx-auto space-y-10 relative z-10">
+
+        <!-- Tracking Form Card -->
+        <div id="trackingFormCard" class="glass-panel rounded-[2.5rem] shadow-2xl p-10 reveal">
+          <div class="flex items-center gap-4 mb-10 border-b border-gray-100 pb-8">
+            <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 icon-glow transition-all duration-500">
+               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z"/></svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-black text-gray-900 tracking-tight">Find Your Request</h2>
+              <p class="text-[11px] text-gray-400 font-black uppercase tracking-widest mt-1">Instant GPS Lookup</p>
+            </div>
+          </div>
+
+          <form id="trackingForm" class="space-y-6">
+            <div class="form-field">
+              <input type="text" id="requestId" required placeholder=" " class="font-mono uppercase" />
+              <label for="requestId">Request ID (e.g. AC-1024)</label>
+            </div>
+            <div class="form-field">
+              <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder=" " />
+              <label for="phone">Phone Number</label>
+            </div>
+            <button type="submit" class="btn-glow w-full py-5 rounded-3xl text-lg flex items-center justify-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              Track Now
+            </button>
+          </form>
+        </div>
+
+        <!-- Progress Tracking Results Card -->
+        <div id="trackingResultsCard" class="hidden glass-panel rounded-[2.5rem] shadow-2xl p-10 reveal-stagger">
+          <div class="flex justify-between items-center mb-10 pb-6 border-b border-gray-100">
+            <div>
+              <p class="text-[10px] text-blue-500 font-black uppercase tracking-[0.2em] mb-2">Request Status</p>
+              <h2 class="text-3xl font-black text-gray-900 tracking-tighter">ID: <span id="displayId" class="text-blue-600">AC-XXXX</span></h2>
+            </div>
+            <button onclick="location.reload()" class="bg-slate-100 font-black text-[10px] uppercase tracking-widest px-4 py-2 rounded-xl text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition">Reset</button>
+          </div>
+          
+          <!-- This will be populated by status.js into timelineContent -->
+          <div id="timelineContent" class="relative border-l-[3px] border-blue-100 ml-6 space-y-12 mt-12 py-2"></div>
+        </div>
+
+        <!-- Help Tooltip -->
+        <div class="glass-panel rounded-3xl p-6 flex items-center gap-6 reveal translate-y-4">
+          <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center flex-shrink-0 text-amber-500 shadow-xl shadow-amber-500/5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <div class="flex-1">
+            <p class="text-md font-black text-gray-900 tracking-tight">Can't find your ID?</p>
+            <p class="text-xs font-medium text-gray-500 mt-1 leading-relaxed">It was sent via SMS when you booked. <a href="service.html" class="text-blue-600 font-bold underline hover:opacity-80 transition-opacity">Book new →</a></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-950 text-white text-center py-12 border-t border-white/5">
+      <p class="text-gray-500 font-bold text-xs uppercase tracking-widest">&copy; 2026 Extreme S&S. All Rights Reserved.</p>
+      <a href="index.html" class="text-gray-700 hover:text-white transition font-black text-[10px] tracking-widest mt-4 inline-block">Return to Base</a>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/status.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>

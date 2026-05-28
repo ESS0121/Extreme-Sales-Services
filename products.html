@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC Marketplace | Extreme Sales &amp; Services</title>
+    <meta
+      name="description"
+      content="Shop New ACs, 2nd Hand units, and genuine spare parts at Extreme Sales &amp; Services. Best prices, fast delivery."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body
+    class="bg-gray-50 text-gray-950 font-sans flex flex-col min-h-screen antialiased"
+  >
+    <!-- NAVBAR -->
+    <nav
+      id="mainNav"
+      class="fixed w-full z-50 top-0 transition-all duration-500 bg-transparent py-4 text-center"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+        <div
+          class="glass-panel rounded-full px-8 py-1.5 flex items-center justify-between gap-12 border-white/20 shadow-2xl w-full max-w-5xl"
+        >
+          <a
+            href="index.html"
+            class="text-xl md:text-2xl font-black tracking-tighter text-blue-600 hover:opacity-80 transition flex items-center gap-2"
+          >
+            <span
+              class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm"
+              >ES</span
+            >
+            Extreme <span class="text-gray-950">S&S</span>
+          </a>
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              href="index.html"
+              class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm"
+              >Home</a
+            >
+            <a
+              href="products.html"
+              class="nav-link active text-gray-950 font-black text-sm transition"
+              >Products</a
+            >
+            <a
+              href="status.html"
+              class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition"
+              >Track Status</a
+            >
+            <a
+              href="amc.html"
+              class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition"
+              >AMC Plans</a
+            >
+            <a
+              href="service.html"
+              class="btn-glow px-6 py-2 rounded-full text-sm"
+              >Book Service</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button
+              id="mobileMenuBtn"
+              aria-label="Toggle mobile menu"
+              class="text-gray-600 hover:text-blue-600 transition"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="hidden absolute top-20 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 p-6 md:hidden flex flex-col space-y-4 font-bold text-gray-600"
+      >
+        <a href="index.html" class="hover:text-blue-600">Home</a>
+        <a href="products.html" class="text-blue-600 font-black">Products</a>
+        <a href="status.html" class="hover:text-blue-600">Track Status</a>
+        <a href="amc.html" class="hover:text-blue-600">AMC Plans</a>
+        <a href="service.html" class="btn-glow py-4 rounded-2xl"
+          >Book Service</a
+        >
+      </div>
+    </nav>
+
+    <!-- HERO HEADER & FILTERS -->
+    <div class="hero-bg pt-44 pb-32 px-4 text-center relative overflow-hidden">
+      <div id="particleContainer"></div>
+      <div class="max-w-4xl mx-auto relative z-10 fade-up">
+        <h1
+          class="text-4xl md:text-6xl font-black text-white leading-tight mb-8 tracking-tight"
+        >
+          The <span class="text-gradient-cyan">Marketplace</span>
+        </h1>
+
+        <!-- Filter Bar -->
+        <div
+          class="glass-panel rounded-[2rem] p-6 lg:p-4 space-y-4 shadow-3xl shadow-blue-900/10 border-white/20"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div id="categoryFilters" class="flex flex-wrap gap-2">
+              <button
+                onclick="filterCategory('all', this)"
+                class="cat-btn active bg-blue-600 text-white px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest shadow-xl transition-all scale-105"
+              >
+                All Items
+              </button>
+              <button
+                onclick="filterCategory('new_ac', this)"
+                class="cat-btn bg-white/5 text-white/70 hover:bg-white/10 px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest transition-all"
+              >
+                New ACs
+              </button>
+              <button
+                onclick="filterCategory('used_ac', this)"
+                class="cat-btn bg-white/5 text-white/70 hover:bg-white/10 px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest transition-all"
+              >
+                Refurbished
+              </button>
+              <button
+                onclick="filterCategory('spare_part', this)"
+                class="cat-btn bg-white/5 text-white/70 hover:bg-white/10 px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest transition-all"
+              >
+                Spare Parts
+              </button>
+            </div>
+
+            <div class="flex items-center gap-3 w-full lg:w-auto">
+              <div class="relative flex-1">
+                <input
+                  id="productSearch"
+                  type="search"
+                  placeholder="Search..."
+                  class="w-full lg:w-48 px-6 py-2 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold focus:bg-white focus:text-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-500/20 transition-all placeholder:text-white/40"
+                />
+              </div>
+              <select
+                id="productSort"
+                aria-label="Sort options"
+                class="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-black uppercase tracking-widest focus:bg-white focus:text-gray-900 focus:outline-none transition-all cursor-pointer"
+              >
+                <option value="default">Sort By</option>
+                <option value="price_asc">Price: Low → High</option>
+                <option value="price_desc">Price: High → Low</option>
+              </select>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-wrap items-center gap-6 text-[10px] font-black text-blue-100 uppercase tracking-widest pt-4 border-t border-white/10"
+          >
+            <div class="flex items-center gap-3">
+              <span
+                >Min Price:
+                <span id="minPriceValue" class="text-white">₹0</span></span
+              >
+              <input
+                id="minPrice"
+                type="range"
+                min="0"
+                max="100000"
+                step="500"
+                value="0"
+                class="h-1 w-24 bg-white/10 rounded-full accent-blue-400"
+              />
+            </div>
+            <div class="flex items-center gap-3">
+              <span
+                >Max Price:
+                <span id="maxPriceValue" class="text-white"
+                  >₹1,00,000</span
+                ></span
+              >
+              <input
+                id="maxPrice"
+                type="range"
+                min="0"
+                max="100000"
+                step="500"
+                value="100000"
+                class="h-1 w-24 bg-white/10 rounded-full accent-blue-400"
+              />
+            </div>
+            <label class="flex items-center gap-2 cursor-pointer group">
+              <input
+                id="inStockOnly"
+                type="checkbox"
+                class="w-4 h-4 rounded bg-white/10 border-white/20 text-blue-600 focus:ring-offset-0 focus:ring-0"
+              />
+              <span class="group-hover:text-white transition"
+                >In-stock only</span
+              >
+            </label>
+            <button
+              id="clearFilters"
+              onclick="clearFilters()"
+              class="ml-auto text-white/40 hover:text-red-400 transition uppercase tracking-widest"
+            >
+              ✕ Clear All
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <main class="flex-grow mesh-bg pb-32">
+      <div class="max-w-7xl mx-auto px-4 -mt-16">
+        <div
+          id="productGrid"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 reveal-stagger"
+        >
+          <!-- Loading Skeletons -->
+          <div class="card-3d glass-panel p-6 rounded-[2rem] animate-pulse">
+            <div class="h-48 bg-gray-200 rounded-2xl mb-4"></div>
+            <div class="h-4 bg-gray-200 w-3/4 rounded mb-2"></div>
+            <div class="h-4 bg-gray-200 w-1/2 rounded"></div>
+          </div>
+          <div class="card-3d glass-panel p-6 rounded-[2rem] animate-pulse">
+            <div class="h-48 bg-gray-200 rounded-2xl mb-4"></div>
+            <div class="h-4 bg-gray-200 w-3/4 rounded mb-2"></div>
+            <div class="h-4 bg-gray-200 w-1/2 rounded"></div>
+          </div>
+          <!-- Repeats for total of 4 initial loaders -->
+        </div>
+      </div>
+    </main>
+
+    <!-- ENQUIRY MODAL -->
+    <div
+      id="enquiryModal"
+      class="fixed inset-0 bg-gray-950/90 backdrop-blur-2xl z-[100] flex items-center justify-center hidden opacity-0 transition-all duration-500 p-4"
+    >
+      <div
+        class="glass-panel rounded-[3rem] shadow-2xl max-w-md w-full overflow-hidden transform scale-75 transition-all duration-500"
+        id="modalContent"
+      >
+        <div
+          class="bg-gradient-to-br from-blue-700 to-blue-600 p-10 flex justify-between items-center relative overflow-hidden"
+        >
+          <div class="relative z-10">
+            <h3 class="font-black text-white text-3xl tracking-tight">
+              Express Enquiry
+            </h3>
+            <p
+              class="text-blue-100 font-bold text-xs mt-1 uppercase tracking-widest"
+            >
+              Get availability in 2 mins
+            </p>
+          </div>
+          <button
+            onclick="closeModal()"
+            class="text-white hover:rotate-90 transition-transform duration-300 font-black text-4xl leading-none"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div class="p-10">
+          <div
+            class="flex items-center gap-6 mb-10 p-4 bg-blue-50 border border-blue-100 rounded-[2rem]"
+          >
+            <img
+              id="modalImage"
+              src=""
+              class="w-20 h-20 object-cover rounded-2xl shadow-xl bg-white border border-white"
+              alt=""
+            />
+            <div>
+              <p
+                id="modalProductName"
+                class="font-black text-blue-900 text-lg leading-tight"
+              >
+                Product Name
+              </p>
+              <p id="modalProductPrice" class="font-black text-blue-600 mt-1">
+                ₹0
+              </p>
+            </div>
+          </div>
+
+          <form id="enquiryForm" class="space-y-6">
+            <input type="hidden" id="modalProductId" />
+            <div class="form-field">
+              <input type="text" id="enqName" required placeholder=" " />
+              <label for="enqName">Your Name</label>
+            </div>
+            <div class="form-field">
+              <input type="tel" id="enqPhone" required placeholder=" " />
+              <label for="enqPhone">Phone Number</label>
+            </div>
+            <div class="form-field">
+              <textarea id="enqMessage" rows="2" placeholder=" "></textarea>
+              <label for="enqMessage">Message (Is this available?)</label>
+            </div>
+            <button
+              type="submit"
+              class="btn-glow w-full py-5 rounded-3xl text-xl shadow-xl shadow-blue-500/30"
+            >
+              Submit Enquiry
+            </button>
+            <p
+              id="enqSuccessMsg"
+              class="text-green-600 text-center font-black text-sm hidden uppercase tracking-widest mt-4"
+            >
+              ✅ We'll call you right back!
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-gray-950 text-white py-12 text-center border-t border-white/5"
+    >
+      <p
+        class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-10"
+      >
+        &copy; 2026 Extreme S&S. All Rights Reserved.
+      </p>
+      <a
+        href="index.html"
+        class="text-gray-700 hover:text-white transition font-black text-[10px] uppercase tracking-widest"
+        >Back to base level</a
+      >
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/products.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>
