@@ -42,7 +42,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
             // Redirect to the correct dashboard
             if (data.role === 'admin')           window.location.href = '../admin.html';
-            else if (data.role === 'staff')       window.location.href = '../dashboard/staff.html';
+            else if (data.role === 'staff')       window.location.href = '../staff.html';
             else if (data.role === 'technician')  window.location.href = '../dashboard/technician.html';
 
         } else {

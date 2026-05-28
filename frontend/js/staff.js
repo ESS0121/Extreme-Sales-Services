@@ -130,6 +130,7 @@ async function assignTechnician(requestId, technicianId) {
 const enquiryTableBody = document.getElementById('enquiryTableBody');
 
 async function fetchEnquiries() {
+     if (!enquiryTableBody) return;
      try {
         const response = await fetch(`${API_BASE}/api/admin/enquiries`, { headers: authHeaders });
         const data = await response.json();
