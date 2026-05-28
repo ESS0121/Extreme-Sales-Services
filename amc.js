@@ -2,7 +2,7 @@
 
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:5000'
-    : 'https://ess-backend.onrender.com';
+    : 'https://extreme-sales-services.onrender.com';
 const AMC_API = `${API_BASE}/api/amc-plans`;
 const PURCHASE_API = `${API_BASE}/api/amc/purchase`;
 
