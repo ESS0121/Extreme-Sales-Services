@@ -141,7 +141,7 @@ document.getElementById('createUserForm')?.addEventListener('submit', async (e) 
         email: document.getElementById('newUserEmail').value,
         role: document.getElementById('newUserRole').value,
         password: document.getElementById('newUserPass').value,
-        phone: document.getElementById('newUserPhone').value
+        phone: document.getElementById('newUserPhone')?.value || ""
     };
 
     const res = await fetch(`${API_BASE}/api/admin/users`, { method: 'POST', headers: authHeaders, body: JSON.stringify(payload) });
