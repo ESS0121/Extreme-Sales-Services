@@ -46,6 +46,17 @@ form.addEventListener('submit', async (e) => {
             trackingIdDisplay.innerText = data.requestId;
             modal.classList.remove('hidden');
             modal.style.display = 'flex'; // Force display if hidden class isn't enough
+            
+            // Trigger visual transitions after a micro delay
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                const successIcon = document.getElementById('successIcon');
+                if (successIcon) {
+                    successIcon.classList.remove('scale-0');
+                    successIcon.classList.add('scale-100');
+                }
+            }, 50);
         } else {
             alert("Booking failed: " + data.message);
         }
