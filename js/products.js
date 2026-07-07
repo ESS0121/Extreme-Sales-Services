@@ -60,7 +60,7 @@ function renderProducts(productsArray) {
 
         card.innerHTML = `
             <div class="h-48 overflow-hidden relative bg-white flex items-center justify-center p-4">
-                <img src="${p.image_url}" alt="${p.name}" class="h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                <img src="${p.image_url}" alt="${p.name}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80';" class="h-full object-contain group-hover:scale-105 transition-transform duration-500">
                 <span class="absolute top-3 left-3 ${badgeClass} text-[10px] uppercase font-extrabold px-2.5 py-1 rounded-full tracking-wide">${badgeLabel}</span>
             </div>
             <div class="p-5 flex flex-col flex-1 border-t border-gray-50">
@@ -221,7 +221,11 @@ function openModal(encodedData) {
     document.getElementById('modalProductId').value = p.id;
     document.getElementById('modalProductName').innerText = p.name;
     document.getElementById('modalProductPrice').innerText = `₹${p.price}`;
-    document.getElementById('modalImage').src = p.image_url;
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = p.image_url;
+    modalImg.onerror = () => {
+        modalImg.src = 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80';
+    };
     document.getElementById('enqSuccessMsg').classList.add('hidden'); // Reset Success label
     
     // Show Flow
