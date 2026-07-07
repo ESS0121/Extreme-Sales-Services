@@ -167,4 +167,60 @@
     );
   }
 
+  /* ─── 9. Dynamic Navigation Link Highlighting ───────── */
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link').forEach((link) => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+  /* ─── 10. Theme Management (Dark/Light mode) ────────── */
+  const initTheme = () => {
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    updateThemeToggleUI();
+  };
+
+  const toggleTheme = () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeToggleUI();
+  };
+
+  const updateThemeToggleUI = () => {
+    const isDark = document.documentElement.contains(document.querySelector('.dark')); // check html node
+    const activeDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+      const moonIcon = btn.querySelector('.theme-icon-moon');
+      const sunIcon = btn.querySelector('.theme-icon-sun');
+      if (activeDark) {
+        if (moonIcon) moonIcon.classList.add('hidden');
+        if (sunIcon) sunIcon.classList.remove('hidden');
+      } else {
+        if (moonIcon) moonIcon.classList.remove('hidden');
+        if (sunIcon) sunIcon.classList.add('hidden');
+      }
+    });
+  };
+
+  // Add click listener for all theme toggles
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-toggle-btn');
+    if (btn) {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
+
+  // Run on load
+  initTheme();
+
 })();

@@ -606,3 +606,182 @@ body > .page-content {
   0% { transform: translate(-50%, 0); opacity: 1; }
   100% { transform: translate(-50%, 15px); opacity: 0; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES
+   ═══════════════════════════════════════════════════════════ */
+html.dark {
+  --clr-surface:       rgba(15,23,42,0.72);
+  --clr-border:        rgba(255,255,255,0.08);
+  --clr-shadow:        rgba(0,0,0,0.3);
+  --shadow-card:       0 4px 24px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.35);
+  --shadow-card-hover: 0 16px 40px rgba(37,99,235,0.18), 0 2px 8px rgba(0,0,0,0.4);
+}
+
+html.dark body {
+  background-color: #0f172a !important; /* slate-900 */
+  color: #cbd5e1 !important; /* slate-300 */
+}
+
+/* Dark mode typography contrast */
+html.dark .text-gray-900,
+html.dark h2, html.dark h3, html.dark h4,
+html.dark .font-black:not(.text-blue-600):not(.text-red-600):not(.text-green-600) {
+  color: #f8fafc !important; /* slate-50 */
+}
+html.dark .text-gray-800 {
+  color: #cbd5e1 !important; /* slate-300 */
+}
+html.dark .text-gray-700 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #64748b !important; /* slate-500 */
+}
+
+/* Dark mode background panels */
+html.dark .bg-white {
+  background-color: #1e293b !important; /* slate-800 */
+}
+html.dark .bg-gray-50,
+html.dark .bg-slate-50 {
+  background-color: #0f172a !important; /* slate-900 */
+}
+html.dark .bg-slate-100 {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+/* Dark Mode Navigation & Sticky Navbar */
+html.dark nav#mainNav.bg-white\/95 {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+html.dark nav#mainNav a:not(.btn-glow):not(.btn-shimmer) {
+  color: #cbd5e1 !important;
+}
+html.dark nav#mainNav a:not(.btn-glow):not(.btn-shimmer):hover,
+html.dark nav#mainNav a.active:not(.btn-glow) {
+  color: #3b82f6 !important;
+}
+html.dark #mobileMenu {
+  background-color: rgba(15, 23, 42, 0.98) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Glass Panels */
+html.dark .glass-panel {
+  background: var(--clr-surface) !important;
+  border-color: var(--clr-border) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+/* Input Fields & Forms */
+html.dark .form-field input,
+html.dark .form-field textarea,
+html.dark .form-field select {
+  background-color: #0f172a !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  color: #f8fafc !important;
+}
+html.dark .form-field input:focus,
+html.dark .form-field textarea:focus,
+html.dark .form-field select:focus {
+  border-color: var(--clr-primary-light) !important;
+  background-color: #1e293b !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+}
+html.dark .form-field label {
+  color: #64748b !important;
+}
+html.dark .form-field input:focus ~ label,
+html.dark .form-field input:not(:placeholder-shown) ~ label,
+html.dark .form-field textarea:focus ~ label,
+html.dark .form-field textarea:not(:placeholder-shown) ~ label,
+html.dark .form-field select ~ label {
+  color: var(--clr-cyan) !important;
+}
+
+/* Mesh Background Dark Version */
+html.dark .mesh-bg {
+  background: #0f172a !important;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(217, 30%, 15%, 1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 30%, 12%, 1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(220, 30%, 10%, 1) 0px, transparent 50%) !important;
+}
+
+/* Form Validation Helper Classes */
+.form-field input.valid-input,
+.form-field textarea.valid-input,
+.form-field select.valid-input {
+  border-color: #22c55e !important; /* Green */
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15) !important;
+}
+
+.form-field input.invalid-input,
+.form-field textarea.invalid-input,
+.form-field select.invalid-input {
+  border-color: #ef4444 !important; /* Red */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* Theme Toggle Button Styling */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base) !important;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  transform: scale(1.08);
+}
+
+/* Adjust colors when nav scrolled and becomes white */
+#mainNav.bg-white\/95 .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.05) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  color: #1e293b !important;
+}
+
+#mainNav.bg-white\/95 .theme-toggle-btn:hover {
+  background: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Adjust colors in dark mode scrolled nav */
+html.dark nav#mainNav.bg-white\/95 .theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f8fafc !important;
+}
+
+html.dark nav#mainNav.bg-white\/95 .theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Purple color overrides for the moon toggle icon */
+.theme-icon-moon {
+  color: #a78bfa !important; /* Light purple for dark hero background */
+  transition: color var(--transition-base);
+}
+
+.theme-toggle-btn:hover .theme-icon-moon {
+  color: #c084fc !important; /* Lighter purple on hover */
+}
+
+/* Scrolled white navbar state overrides */
+#mainNav.bg-white\/95 .theme-icon-moon {
+  color: #7c3aed !important; /* Dark violet for light scrolled header */
+}
+
+#mainNav.bg-white\/95 .theme-toggle-btn:hover .theme-icon-moon {
+  color: #6d28d9 !important; /* Deep violet on hover in scrolled header */
+}

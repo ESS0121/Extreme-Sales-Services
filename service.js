@@ -102,3 +102,47 @@ if (phoneInput && amcBanner && amcDetails) {
         }
     });
 }
+
+// ------ INLINE FORM VALIDATION ------ //
+const validateInput = (input, isValid) => {
+    if (input.value.trim() === '') {
+        input.classList.remove('valid-input', 'invalid-input');
+        return;
+    }
+    if (isValid) {
+        input.classList.add('valid-input');
+        input.classList.remove('invalid-input');
+    } else {
+        input.classList.add('invalid-input');
+        input.classList.remove('valid-input');
+    }
+};
+
+const nameField = document.getElementById('name');
+if (nameField) {
+    nameField.addEventListener('input', () => {
+        validateInput(nameField, nameField.value.trim().length >= 2);
+    });
+}
+
+const emailField = document.getElementById('email');
+if (emailField) {
+    emailField.addEventListener('input', () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        validateInput(emailField, emailRegex.test(emailField.value.trim()));
+    });
+}
+
+if (phoneInput) {
+    phoneInput.addEventListener('input', () => {
+        const phone = phoneInput.value.trim();
+        validateInput(phoneInput, phone.length === 10 && /^\d+$/.test(phone));
+    });
+}
+
+const addressField = document.getElementById('address');
+if (addressField) {
+    addressField.addEventListener('input', () => {
+        validateInput(addressField, addressField.value.trim().length >= 6);
+    });
+}
