@@ -27,8 +27,33 @@
             <a href="status.html" class="nav-link active text-gray-950 font-black text-sm">Track Status</a>
             <a href="amc.html" class="nav-link text-gray-600 hover:text-blue-600 font-bold text-sm transition">AMC Plans</a>
             <a href="service.html" class="btn-glow px-6 py-2.5 rounded-full text-sm">Book Service</a>
+            <!-- Theme Toggle Button -->
+            <button
+              class="theme-toggle-btn text-gray-600 dark:text-gray-300 hover:text-blue-600 transition p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
+              aria-label="Toggle Theme"
+            >
+              <svg class="theme-icon-moon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+              <svg class="theme-icon-sun w-5 h-5 hidden text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </button>
           </div>
-          <div class="md:hidden">
+
+          <div class="md:hidden flex items-center gap-2">
+            <!-- Theme Toggle for Mobile -->
+            <button
+              class="theme-toggle-btn text-gray-600 dark:text-gray-300 hover:text-blue-600 transition p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
+              aria-label="Toggle Theme"
+            >
+              <svg class="theme-icon-moon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+              <svg class="theme-icon-sun w-5 h-5 hidden text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </button>
             <button id="mobileMenuBtn" aria-label="Toggle mobile menu" class="text-gray-600 hover:text-blue-600 transition">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>

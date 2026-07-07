@@ -61,9 +61,33 @@
               class="btn-glow px-6 py-2.5 rounded-full text-sm"
               >Book Service</a
             >
+            <!-- Theme Toggle Button -->
+            <button
+              class="theme-toggle-btn text-gray-600 dark:text-gray-300 hover:text-blue-600 transition p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
+              aria-label="Toggle Theme"
+            >
+              <svg class="theme-icon-moon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+              <svg class="theme-icon-sun w-5 h-5 hidden text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </button>
           </div>
 
-          <div class="md:hidden flex items-center">
+          <div class="md:hidden flex items-center gap-2">
+            <!-- Theme Toggle for Mobile -->
+            <button
+              class="theme-toggle-btn text-gray-600 dark:text-gray-300 hover:text-blue-600 transition p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
+              aria-label="Toggle Theme"
+            >
+              <svg class="theme-icon-moon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+              </svg>
+              <svg class="theme-icon-sun w-5 h-5 hidden text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </button>
             <button
               id="mobileMenuBtn"
               aria-label="Toggle mobile menu"
@@ -187,7 +211,7 @@
             </svg>
           </a>
           <a
-            href="tel:+1234567890"
+            href="tel:+917977805245"
             class="btn-outline-glow px-10 py-4 rounded-2xl text-lg flex items-center justify-center gap-3"
           >
             <svg
@@ -530,122 +554,6 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="py-32 bg-slate-50 relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 items-end gap-12 mb-20">
-          <div class="lg:col-span-2 reveal">
-            <h2
-              class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight"
-            >
-              Trusted by
-              <span class="text-blue-600">500+</span> Customers<br />Across the
-              City
-            </h2>
-          </div>
-          <div class="text-right reveal-right">
-            <p class="text-gray-500 font-bold text-lg mb-4">
-              "Best in class support"
-            </p>
-            <div class="flex justify-end gap-1 text-yellow-400">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                />
-              </svg>
-              <!-- Repeat 4 more times -->
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
-          <div class="glass-panel p-10 rounded-[2.5rem] hover-lift">
-            <div class="flex gap-1 text-yellow-400 mb-6">
-              <svg
-                class="w-4 h-4 text-yellow-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <!-- 5 stars -->
-            </div>
-            <p class="text-gray-700 font-medium text-lg leading-relaxed mb-8">
-              "My AC broke during a heatwave. The tech arrived within 2 hours
-              and had it blowing ice cold in no time. Unbeatable speed!"
-            </p>
-            <div class="flex items-center gap-4">
-              <div
-                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-black text-blue-600"
-              >
-                RM
-              </div>
-              <div>
-                <p class="font-black text-gray-900">Rahul Sharma</p>
-                <p
-                  class="text-xs font-bold text-gray-400 uppercase tracking-widest"
-                >
-                  Homeowner
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass-panel p-10 rounded-[2.5rem] hover-lift md:mt-8">
-            <div class="flex gap-1 text-yellow-400 mb-6">
-              <!-- 5 stars -->
-            </div>
-            <p class="text-gray-700 font-medium text-lg leading-relaxed mb-8">
-              "Completely transparent pricing. They quoted upfront and stuck to
-              it. Best AMC service I've experienced for my office."
-            </p>
-            <div class="flex items-center gap-4">
-              <div
-                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-black text-blue-600"
-              >
-                PK
-              </div>
-              <div>
-                <p class="font-black text-gray-900">Priya Kapoor</p>
-                <p
-                  class="text-xs font-bold text-gray-400 uppercase tracking-widest"
-                >
-                  Office Manager
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass-panel p-10 rounded-[2.5rem] hover-lift md:mt-16">
-            <div class="flex gap-1 text-yellow-400 mb-6">
-              <!-- 5 stars -->
-            </div>
-            <p class="text-gray-700 font-medium text-lg leading-relaxed mb-8">
-              "Polite, certified experts. They handled my high-end Daikin
-              multi-split with absolute care and zero mess left behind."
-            </p>
-            <div class="flex items-center gap-4">
-              <div
-                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-black text-blue-600"
-              >
-                AV
-              </div>
-              <div>
-                <p class="font-black text-gray-900">Amit Verma</p>
-                <p
-                  class="text-xs font-bold text-gray-400 uppercase tracking-widest"
-                >
-                  Property Manager
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- FOOTER -->
     <footer class="bg-gray-950 text-white pt-24 pb-12 border-t border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -745,7 +653,23 @@
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                +91 12345 67890
+                +91 7977805245
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-5 h-5 text-blue-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=extremess0121@gmail.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">extremess0121@gmail.com</a>
               </li>
               <li class="flex items-center gap-3">
                 <svg
@@ -771,9 +695,6 @@
         >
           <p class="text-xs font-bold text-gray-600 uppercase tracking-widest">
             &copy; 2026 Extreme S&S. All Rights Reserved.
-          </p>
-          <p class="text-xs font-bold text-gray-700 uppercase tracking-widest">
-            Designed with absolute precision
           </p>
         </div>
       </div>
